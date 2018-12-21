@@ -25,11 +25,11 @@ h1{
   }
 
 #reset {
-    position:absolute;
-    top: 25%;
-    left: 85%;
+    display: block;
     width: 70px;
     height: 30px;
+    margin-right: 20px;
+    margin-left: auto;
 }
 
 #jump {

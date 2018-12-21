@@ -1,44 +1,45 @@
 var bird;
 var pipes = [];
+var shouldStart = false;
 function setup() {
 
   var canvas = createCanvas(900,500);
   canvas.parent('sketch-holder');
-
-
   bird = new Bird();
-  var pipe = new Pipe();
-  pipes.push(pipe);
+  // var pipe = new Pipe();
+  // pipes.push(pipe);
 }
 
 function draw() {
   background(0);
-  for(var i = pipes.length - 1; i >= 0 ; i--) {
-    pipes[i].show();
-    pipes[i].update();
 
-    if(pipes[i].hits(bird)){
-      pipes[i].highlight = true;
+  if(shouldStart){
+    for(var i = pipes.length - 1; i >= 0 ; i--) {
+      pipes[i].show();
+      pipes[i].update();
+
+      if(pipes[i].hits(bird)){
+        pipes[i].highlight = true;
+      }
+      else {
+        pipes[i].highlight = false;
+      }
+
+      if(pipes[i].offscreen()) {
+        pipes.splice(i,1)
+      }
     }
-    else {
-      pipes[i].highlight = false;
+    bird.show();
+    bird.update();
+
+    if(frameCount % 60 == 0) {
+      var pipe = new Pipe();
+      pipes.push(pipe);
     }
 
-    if(pipes[i].offscreen()) {
-      pipes.splice(i,1)
-    }
+    console.log(pipes);
   }
 
-
-  bird.show();
-  bird.update();
-
-  if(frameCount % 60 == 0) {
-    var pipe = new Pipe();
-    pipes.push(pipe);
-  }
-
-  console.log(pipes);
 }
 
 function keyPressed() {
@@ -60,7 +61,14 @@ function resetGame() {
 //   var pipe = new Pipe();
 //   pipes.push(pipe);
 // }
+function start() {
+  console.log("START PRESSED");
+   shouldStart = true;
+}
 
 function jump() {
+  if(!shouldStart) {
+    shouldStart = true;
+  }
   bird.up();
 }

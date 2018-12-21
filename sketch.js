@@ -50,7 +50,16 @@ function keyPressed() {
 
 function resetGame() {
   console.log("RESET PRESSED");
+  window.location.reload();
+  //gameReset();
 }
+
+// funtion gameReset() {
+//   pipes = [];
+//   bird = new Bird();
+//   var pipe = new Pipe();
+//   pipes.push(pipe);
+// }
 
 function jump() {
   bird.up();

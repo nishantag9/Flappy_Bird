@@ -1,0 +1,29 @@
+
+
+div{
+  margin-top: 50px;
+  display: flex;
+
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+  background-color: #BDC6F7;
+  padding: 10px;
+}
+
+h1 {
+  color: #465ACB;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 50px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#reset {
+    position:absolute;
+    top: 15%;
+    left: 95%;
+}

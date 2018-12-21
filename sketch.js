@@ -1,18 +1,17 @@
 var bird;
 var pipes = [];
 function setup() {
-  createCanvas(700,400);
-  bird = new Bird();
 
+  var canvas = createCanvas(900,500);
+  canvas.parent('sketch-holder');
+
+  bird = new Bird();
   var pipe = new Pipe();
   pipes.push(pipe);
 }
 
 function draw() {
-  // put drawing code here
   background(0);
-
-
   for(var i = pipes.length - 1; i >= 0 ; i--) {
     pipes[i].show();
     pipes[i].update();
@@ -41,9 +40,13 @@ function draw() {
   console.log(pipes);
 }
 
-  function keyPressed() {
+function keyPressed() {
     if (key == ' ') {
       bird.up();
       console.log("SPACE");
   }
+}
+
+function resetGame() {
+  console.log("RESET PRESSED");
 }

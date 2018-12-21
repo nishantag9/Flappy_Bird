@@ -5,6 +5,7 @@ function setup() {
   var canvas = createCanvas(900,500);
   canvas.parent('sketch-holder');
 
+
   bird = new Bird();
   var pipe = new Pipe();
   pipes.push(pipe);
@@ -49,4 +50,8 @@ function keyPressed() {
 
 function resetGame() {
   console.log("RESET PRESSED");
+}
+
+function jump() {
+  bird.up();
 }

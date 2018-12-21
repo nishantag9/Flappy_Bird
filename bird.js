@@ -3,6 +3,7 @@ function Bird(){
     this.x = 50;
     this.y = height/2;
     this.velocity = 0;
+    this.active = true;
     var gravity = 0.4;
     var lift = -9
     this.show = function() {
@@ -13,23 +14,25 @@ function Bird(){
     }
 
     this.update = function() {
+        if(this.active) {
+          this.velocity += gravity;
+          this.y += this.velocity;
 
-        this.velocity += gravity;
-        this.y += this.velocity;
+          if(this.y > height){
+            this.velocity = 0;
+            this.y = height;
+          }
 
-        if(this.y > height){
-          this.velocity = 0;
-          this.y = height;
+          if (this.y < 0) {
+            this.y = 0;
+            this.velocity = 0;
+          }
         }
-
-        if (this.y < 0) {
-          this.y = 0;
-          this.velocity = 0;
-        }
-
-    }
+      }
 
     this.up = function() {
-      this.velocity += lift;
+      if(this.active) {
+        this.velocity += lift;
+      }
     }
 }

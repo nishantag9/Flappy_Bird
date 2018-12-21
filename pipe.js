@@ -22,11 +22,11 @@ function Pipe() {
     }
   }
 
-  this.show = function() {
+  this.show = function(score) {
       fill(255);
       if (this.highlight) {
         fill(255, 0, 0);
-        noLoop(); 
+        document.getElementById('score').innerHTML = "THE SCORE IS " + score;
       }
       rect(this.x, 0, this.w, this.top);
       rect(this.x, height-this.bottom, this.w, this.bottom);

@@ -13,7 +13,7 @@ function draw() {
   background(0);
 
 
-  for(var i = 0; i < pipes.length ; i++) {
+  for(var i = pipes.length - 1; i >= 0 ; i--) {
     pipes[i].show();
     pipes[i].update();
 
@@ -25,7 +25,7 @@ function draw() {
     }
 
     if(pipes[i].offscreen()) {
-      pipes.splice(0,1)
+      pipes.splice(i,1)
     }
   }
 
